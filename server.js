@@ -89,6 +89,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var counter = 0; // counter is initialized to zero when the server starts
+app.get('/counter', function(req, res){
+    counter = counter + 1; // increments the counter
+    res.send(counter.toString()); // response will be sent that which is that counter (String Formatted response)
+});
+
 app.get('/:articleName', function(req, res) {
     //articleName == article-one
     //articles[articleName] == {} content for article one
